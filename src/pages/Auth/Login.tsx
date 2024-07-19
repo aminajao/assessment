@@ -34,7 +34,7 @@ const Login = () => {
           <img src="/assets/logo.svg" alt="Logo" />
         </div>
         <div>
-          <h1 className="font-normal mb-1 text-4xl text-center text-[#304050]">
+          <h1 className="font-normal mb-1 text-[40px] text-center text-[#304050]">
             Welcome Back
           </h1>
           <p className="text-base text-center text-[#304050]">
