@@ -46,7 +46,7 @@ export default function CampaignPerformance() {
         <h3 className="pl-1 text-xl font-bold tracking-normal text-black">
           Average Campaign Performance
         </h3>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-0 lg:grid-cols-4 ">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-0 lg:flex">
           {chartData.map((chart, index) => (
             <Chart
               key={index}

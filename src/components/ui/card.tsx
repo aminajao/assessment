@@ -9,12 +9,12 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      'rounded-lg lg:mr-5 border bg-card text-card-foreground shadow-sm',
       className
     )}
     {...props}
   />
-))
+));
 Card.displayName = "Card"
 
 const CardHeader = React.forwardRef<

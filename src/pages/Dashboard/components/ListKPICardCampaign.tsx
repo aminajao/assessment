@@ -8,7 +8,7 @@ type ListKPICardCampaignProps = {
 export default function ListKPICardCampaign({ KPIData }: ListKPICardCampaignProps) {
   return (
     <>
-      <div className="grid w-full gap-4 lg:grid-cols-4 lg:gap-14">
+      <div className="grid gap-4 lg:grid-cols-4">
         {KPIData.map((kpi, index) => (
           <KPICard
             key={index}

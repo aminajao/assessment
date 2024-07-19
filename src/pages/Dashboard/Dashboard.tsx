@@ -1,15 +1,15 @@
 import { DashboardLayout } from "@/components/DashboardLayout/DashboardLayout";
-import DashboardHeader from "./components/DashboardHeader";
-import ListKPICard from "./components/ListKPICard";
-import CampaignPerformance from "./components/CampaignPerformance";
-import ActiveCampaign from "./components/ActiveCampaign";
+import Header from '../../components/ui/Header';
+import ListKPICard from './components/ListKPICard';
+import CampaignPerformance from './components/CampaignPerformance';
+import ActiveCampaign from './components/ActiveCampaign';
 
 const Dashboard = () => {
   return (
     <DashboardLayout>
       <section className="mt-14">
         <div className="">
-          <DashboardHeader />
+          <Header title="Dashboard" text="It’s looking like an awesome day!" />
         </div>
         <div className="my-6">
           <ListKPICard />

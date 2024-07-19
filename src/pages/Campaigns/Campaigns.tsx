@@ -1,17 +1,20 @@
 import { useState } from 'react';
-import CampaignCard from '@/components/CampaignCard';
-import CampaignOverview from '@/components/CampaignOverview';
+import CampaignCard from './components/CampaignCard';
+import CampaignOverview from './components/CampaignOverview';
 import { DashboardLayout } from '@/components/DashboardLayout/DashboardLayout';
 import { CampaignData, campaigns } from '@/constants/index';
+import Header from '@/components/ui/Header';
 
 const Campaigns = () => {
   const [open, setOpen] = useState(0);
 
   return (
     <DashboardLayout>
-      <h1>Your Campaigns</h1>
-      <p className="mb-10">Always stay ahead of your campaigns!</p>
-      <div className="mb-10">
+      <Header
+        title="Your Campaigns"
+        text="Always stay ahead of your campaigns!"
+      />
+      <div className={`${open ? '' : 'mt-10'} mb-10`}>
         {open === 0 ? null : (
           <div className="w-full text-right">
             <button
@@ -30,8 +33,11 @@ const Campaigns = () => {
           </h2>
           {open === 0 ? null : (
             <div>
-              <h2>
-                Head of Marketing - Campaign Overview (Total Campaigns: 4)
+              <h2 className="text-[#0D1A26] text-xl font-bold mb-8">
+                Head of Marketing - Campaign Overview{' '}
+                <span className="text-xl font-normal">
+                  (Total Campaigns: 4)
+                </span>
               </h2>
             </div>
           )}
@@ -48,6 +54,7 @@ const Campaigns = () => {
               <CampaignCard
                 onClick={() => setOpen(campaign.id)}
                 key={campaign.id}
+                // @ts-expect-error ignore
                 data={campaign}
                 open={open}
               />

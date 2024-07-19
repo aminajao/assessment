@@ -1,39 +1,37 @@
-"use client";
-
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts';
 
 import {
   Card,
   CardContent,
   CardHeader,
   CardDescription,
-} from "@/components/ui/card";
+} from '@/components/ui/card';
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
-} from "@/components/ui/chart";
+} from '@/components/ui/chart';
 const chartData = [
-  { month: "January", contacted: 186, replied: 80, interviews: 100 },
-  { month: "February", contacted: 305, replied: 200, interviews: 150 },
-  { month: "March", contacted: 237, replied: 120, interviews: 200 },
-  { month: "April", contacted: 73, replied: 190, interviews: 250 },
-  { month: "May", contacted: 209, replied: 130, interviews: 300 },
-  { month: "June", contacted: 214, replied: 140, interviews: 350 },
+  { month: 'January', contacted: 186, replied: 80, interviews: 100 },
+  { month: 'February', contacted: 305, replied: 200, interviews: 150 },
+  { month: 'March', contacted: 237, replied: 120, interviews: 200 },
+  { month: 'April', contacted: 73, replied: 190, interviews: 250 },
+  { month: 'May', contacted: 209, replied: 130, interviews: 300 },
+  { month: 'June', contacted: 214, replied: 140, interviews: 350 },
 ];
 
 const chartConfig = {
   contacted: {
-    label: "Candidates Contacted",
-    color: "#F98039",
+    label: 'Candidates Contacted',
+    color: '#F98039',
   },
   replied: {
-    label: "Candidates Replied",
-    color: "#A5ABB3",
+    label: 'Candidates Replied',
+    color: '#A5ABB3',
   },
   interviews: {
-    label: "Interviews Booked",
-    color: "#162C6A",
+    label: 'Interviews Booked',
+    color: '#162C6A',
   },
 } satisfies ChartConfig;
 
@@ -93,7 +91,7 @@ function CustomTooltipContent({
 
 export default function LineCharts() {
   return (
-    <Card>
+    <Card className="lg:mr-0">
       <CardHeader>
         <CardDescription>Last 30 days:</CardDescription>
       </CardHeader>
@@ -119,12 +117,15 @@ export default function LineCharts() {
               axisLine={false}
               tickLine={false}
               label={{
-                value: "No of conversations",
+                // value: 'No of conversations',
                 angle: -90,
-                position: "insideCenter",
+                position: 'insideCenter',
               }}
             />
-            <ChartTooltip cursor={false} content={<CustomTooltipContent />} />
+            <ChartTooltip
+              cursor={false}
+              content={<CustomTooltipContent active={false} payload={[]} />}
+            />
             <Line
               dataKey="contacted"
               type="linear"
