@@ -1,5 +1,5 @@
 import { DashboardLayout } from "@/components/DashboardLayout/DashboardLayout";
-import Header from '../../components/ui/Header';
+import Header from '@/components/ui/header';
 import ListKPICard from './components/ListKPICard';
 import CampaignPerformance from './components/CampaignPerformance';
 import ActiveCampaign from './components/ActiveCampaign';

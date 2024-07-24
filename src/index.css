@@ -71,3 +71,106 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+
+.grid-auto-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 220px);
+}
+
+@media (max-width: 600px)  {
+  .grid-auto-row {
+    grid-template-columns: repeat(auto-fill, 180px);
+  }
+}
+@media (max-width: 472px)  {
+  .grid-auto-row {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+}
+
+@media (max-width: 600px)  {
+  .recharts-wrapper-pie-chart {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+@media (max-width: 400px)  {
+  [data-chart="chart-r1"], [data-chart="chart-r3"],[data-chart="chart-r5"],[data-chart="chart-r7"] {
+    max-height: 130px;
+  }
+}
+
+.kpi-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 260px);
+  gap: 10px; 
+  justify-content: space-between;
+  align-content: center; 
+
+  @media (max-width: 1480px)  {
+    grid-template-columns: repeat(auto-fill, 200px);
+    justify-content: space-evenly;
+  }
+  @media (max-width: 768px)  {
+    grid-template-columns: repeat(auto-fill, 180px);
+    justify-content: space-evenly;
+
+  }
+  @media (max-width: 468px)  {
+    grid-template-columns: repeat(auto-fill, 130px);
+    justify-content: space-evenly;
+    grid-gap: 5px;
+  }
+  @media (max-width: 340px)  {
+    grid-template-columns: repeat(auto-fill, 100px);
+    justify-content: space-evenly;
+    grid-gap: 5px;
+  }
+}
+
+.campaigns-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 230px);
+  justify-content: space-around;
+  margin-bottom: 20px;
+  height:36rem;
+}
+
+@media (max-width: 1200px)  {
+  .campaign-overview {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 968px)  {
+  .hide-up{
+    display: none;
+  }
+}
+
+@media (max-width: 968px)  {
+  .hide{
+    display: none;
+  }
+  .campaign-overall-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .campaigns-container {
+    grid-gap: 2rem;
+    height: auto;
+  }
+  .campaigns-container__open {
+    display: grid;
+    grid-auto-flow: column;
+    overflow-x:scroll;
+    gap: 10px; 
+  }
+  .campaigns-container__open > div{
+    height: 330px;
+  }  
+}
+

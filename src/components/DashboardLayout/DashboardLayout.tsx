@@ -8,7 +8,7 @@ interface DashboardLayoutProps {
 
 export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
-    <div className="md:flex">
+    <div className="flex">
       <SideBar />
       <div className="bg-[#F2F2F2] p-5 md:px-12 w-full md:pt-8 h-screen overflow-y-scroll overflow-x-hidden">
         <Navbar />

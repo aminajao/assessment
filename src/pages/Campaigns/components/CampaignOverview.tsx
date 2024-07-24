@@ -34,7 +34,7 @@ const data: DataItem[] = [
 
 const CampaignOverview = () => {
   return (
-    <div className="bg-white mb-4 shadow-[#00000040] shadow-md rounded-xl grid gap-5 grid-cols-10 py-5 px-3">
+    <div className="bg-white campaign-overview mb-4 shadow-[#00000040] shadow-md rounded-xl grid gap-5 grid-cols-10 py-5 px-3">
       <h3 className="col-span-3 mr-4 text-primary font-bold">
         HR-IT-Project-Lead-Munich
       </h3>

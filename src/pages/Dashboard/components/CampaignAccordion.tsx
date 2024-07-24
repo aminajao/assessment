@@ -135,10 +135,10 @@ export default function CampaignAccordion() {
           key={index}
           value={`item-${index}`}
         >
-          <AccordionTrigger className="px-5 bg-white rounded-md hover:no-underline">
+          <AccordionTrigger className="px-5 mb-5 md:mb-0 bg-white rounded-md hover:no-underline">
             {data.title}
           </AccordionTrigger>
-          <AccordionContent className="p-4 md:p-8 bg-[#EFF0F0] border border-t-0 border-gray-200 rounded-b-md">
+          <AccordionContent className="md:p-4 bg-[#EFF0F0] border border-t-0 border-gray-200 rounded-b-md">
             <div className="w-full mx-auto space-y-6">
               <div className="">
                 <ListKPICardCampaign KPIData={data.kpiData} />

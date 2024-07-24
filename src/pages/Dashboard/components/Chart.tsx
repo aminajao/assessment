@@ -30,13 +30,14 @@ const chartConfig = {
 
 export default function Chart({ footer, chartData, startAngle, endAngle, percentage }: ChartProps) {
   return (
-    <Card className="flex w-[220px] flex-col">
+    <Card className="flex w-[180px] sm:w-[220px] justify-between flex-col">
       <CardContent className="pt-2 pb-0">
         <ChartContainer
           config={chartConfig}
           className="mx-auto aspect-square max-h-[150px]"
         >
           <RadialBarChart
+            className="recharts-wrapper-pie-chart"
             data={chartData}
             startAngle={startAngle}
             endAngle={endAngle}
@@ -54,7 +55,7 @@ export default function Chart({ footer, chartData, startAngle, endAngle, percent
             <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
               <Label
                 content={({ viewBox }) => {
-                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                  if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
                     return (
                       <text
                         x={viewBox.cx}
@@ -67,7 +68,8 @@ export default function Chart({ footer, chartData, startAngle, endAngle, percent
                           y={viewBox.cy}
                           className="text-4xl font-semibold fill-foreground"
                         >
-                          {chartData[0].candidates.toLocaleString()}{percentage ? "%" : ""}
+                          {chartData[0].candidates.toLocaleString()}
+                          {percentage ? '%' : ''}
                         </tspan>
                       </text>
                     );

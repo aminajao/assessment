@@ -22,7 +22,8 @@ const KPIData: KPIType[] = [
 export default function ListKPICard() {
   return (
     <>
-      <div className="flex flex-col space-x-0 space-y-4 md:items-center md:space-y-0 md:space-x-8 md:flex-row">
+      <div className="flex md:items-center space-x-4 flex-row">
+        {/* <div className="flex space-x-0 space-y-4 md:items-center md:space-y-0 md:space-x-8 flex-row"> */}
         {KPIData.map((kpi, index) => (
           <KPICard
             key={index}

@@ -24,7 +24,7 @@ const CampaignCard: FC<CampaignCardProps> = ({ data, open, onClick }) => {
       onClick={onClick}
       className={`${
         open !== 0 && open == data?.id ? 'bg-primary text-white' : 'bg-white'
-      } p-5 pb-2 cursor-pointer shadow-[#00000040] shadow-lg rounded-xl shadow-custom w-[250px]`}
+      } p-5 pb-0 cursor-pointer shadow-[#00000040] shadow-lg rounded-xl shadow-custom w-[230px] lg:w-[250px]`}
     >
       <h2 className="border-b font-bold text-xl text-center pb-1 mb-4">
         {data?.title}

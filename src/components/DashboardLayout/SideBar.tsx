@@ -1,5 +1,7 @@
 import { useLocation, NavLink, useNavigate } from 'react-router-dom';
 import { Button } from '../ui/Button';
+import { useEffect, useState } from 'react';
+import { IoIosArrowRoundBack, IoIosLogOut } from 'react-icons/io';
 
 const Menus = [
   {
@@ -27,11 +29,39 @@ const Menus = [
 ];
 
 export const SideBar = () => {
+  const [open, setOpen] = useState(true);
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    setOpen(!isMobile);
+  }, [isMobile]);
 
   return (
-    <div className="sticky top-0 z-50 hidden h-screen pt-8 duration-300 md:block">
+    <div
+      className={`${open ? 'w-[180px]' : 'w-16'} ${
+        isMobile ? 'w-16' : ''
+      } sticky top-0 z-50 h-screen pt-8 duration-300 block`}
+    >
+      <IoIosArrowRoundBack
+        onClick={() => (!isMobile ? setOpen(!open) : setOpen(false))}
+        className={`${
+          !open && 'rotate-180'
+        } bg-white text-dark-purple text-2xl rounded-full absolute -right-3 top-9 border border-dark-purple cursor-pointer`}
+      />
       <div className="flex justify-center mt-12 mb-32">
         <img src="/assets/sidebar/logo.svg" alt="Logo" />
       </div>
@@ -43,7 +73,9 @@ export const SideBar = () => {
                 key={index}
                 className={`text-gray-300 ${
                   pathname.startsWith(menu.path) ? 'active__sidebar--menu' : ''
-                } px-12 hover:text-[#000028] mb-4 text-sm flex flex-col items-center gap-x-4 cursor-pointer p-3 hover:bg-light-white
+                } ${
+                  open ? 'px-12 p-3 mb-4' : 'mb-10'
+                } hover:text-[#000028] text-sm flex flex-col items-center gap-x-4 cursor-pointer hover:bg-light-white
                 }`}
               >
                 <span className="block float-left mb-2 text-2xl">
@@ -69,13 +101,22 @@ export const SideBar = () => {
           );
         })}
       </ul>
-      <div className="text-center mt-10">
-        <Button
-          variant="outline"
-          text="Logout"
-          onClick={() => navigate('/login')}
-        />
-      </div>
+      {open ? (
+        <div className="text-center mt-10">
+          <Button
+            variant="outline"
+            text="Logout"
+            onClick={() => navigate('/login')}
+          />
+        </div>
+      ) : (
+        <div className="flex justify-center text-2xl text-center mt-10">
+          <IoIosLogOut
+            className="bg-white w-10"
+            onClick={() => navigate('/login')}
+          />
+        </div>
+      )}
     </div>
   );
 };
